@@ -5,7 +5,7 @@ $(document).ready(function () {
         $(this).siblings('.counter').text(currentValue)
         if (currentValue < 0) {
             $(this).siblings('.counter').css('color', 'red')
-        }
+        } else { $(this).siblings('.counter').css('color', 'blue') }
     })
 });
 
