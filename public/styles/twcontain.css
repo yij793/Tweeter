@@ -18,6 +18,10 @@ article.tweet:hover{
     opacity: 1;
 }
 
+article.tweet p{
+    margin-left: 10px;
+}
+
 article.tweet header{
     width:380px;
     height:80px;
