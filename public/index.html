@@ -12,6 +12,7 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/twcontain.css" type="text/css" />
 
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -32,7 +33,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <article class='chatWindow'>
-      <section class="new-tweet">
+      <section class='new-tweet'>
         <h2>Compose Tweet</h2>
         <hr>
         <form method="POST" action='/tweets/' class='tweetForm'>
@@ -42,6 +43,24 @@
         </form>
       </section>
     </article>
+    <section>
+
+      <article class='tweet'>
+        <header>
+          <img src='/images/detective.png'>
+          <span class='userID'>
+            bill field
+          </span>
+          <span class='mrField'>@sirlsaac</span>
+        </header>
+        <p>little tweet here</p>
+        <hr>
+        <footer>
+          <span>10 days ago</span>
+          <span class='icons'>icons go here</span>
+        </footer>
+      </article>
+    </section>
 
   </main>
 
