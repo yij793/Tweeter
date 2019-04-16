@@ -27,9 +27,6 @@ main{
   top:140px;
   left:33%;
   align-content: center;
-  background-color:rgb(173, 173, 173);
-  border: 2px solid rgb(177, 174, 174);
-  border-radius: 25px
 
 }
 main h2{
@@ -39,7 +36,7 @@ main .new-tweet{
   margin-top: 1em;
   margin-bottom:1em;
 }
-main hr{
+main .new-tweet hr{
   margin-top: 0;
   margin-bottom: 1em;
 }
@@ -49,6 +46,9 @@ main .chatWindow{
   margin-left:2em;
   margin-bottom: 4px;
   margin-right:2em;
+  background-color:rgb(173, 173, 173);
+  border: 2px solid rgb(177, 174, 174);
+  border-radius: 10px
 }
 
 main .text{
