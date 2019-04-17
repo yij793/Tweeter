@@ -47,11 +47,8 @@ const data = [
 ];
 //// time function
 function timeSince(date) {
-
     var seconds = Math.floor((new Date() - date) / 1000);
-
     var interval = Math.floor(seconds / 31536000);
-
     if (interval > 1) {
         return interval + " years";
     }
@@ -74,8 +71,9 @@ function timeSince(date) {
     return Math.floor(seconds) + " seconds";
 }
 
-// Test / driver code (temporary)
+
 function createTweetElement(tweetDATA) {
+    // get all infor from data
     let { user, content, created_at } = tweetDATA;
     let { name, avatars, handle } = user;
     let { text } = content;
@@ -84,14 +82,13 @@ function createTweetElement(tweetDATA) {
     ///start creat all element
     let $tweet = $('<article>').addClass("tweet");
     let $header = $('<header>');
-    let $img = $('<img>').attr('src', src);///<img src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png">
-    let $p = $('<p>').text(text);           ///<p>If I have seen further it is by standing on the shoulders of giants</p>
-    console.log($p)
-    let $span = $('<span>').text(timeSince(created_at))///<span>10 days ago<span>
+    let $img = $('<img>').attr('src', src);///<img src='src'>
+    let $p = $('<p>').text(text);           ///<p> text </p>
+    let $span = $('<span>').text(timeSince(created_at))///<span> timefunction(date code) <span>
     let $footer = $('<footer>');
-    let $userID = $('<span>').addClass('userID').text(name); ///<span> Newton </span>
-    let $mrField = $('<span>').addClass('mrField').text(handle); //<span> @SirIsaac </span>
-    let $icon = $('<span>').addClass('icon').text('will add icon later'); /// <span>will add icon later</span> 
+    let $userID = $('<span>').addClass('userID').text(name); ///<span> userName </span>
+    let $mrField = $('<span>').addClass('mrField').text(handle); //<span> userFIELD </span>
+    let $icon = $('<span>').addClass('icon').text('will add icon later'); /// <span> ICONs </span> 
     /// creat DOM
     $($header).append($img)
     $($header).append($userID)
@@ -110,16 +107,38 @@ function renderTweets(data) {
     });
 }
 
+
+
+
+
+function loadTweets() {
+    $.ajax('/tweets', { method: 'GET' }).then(renderTweets(data))
+}
+
+// $(document).ready(function () {
+//     $('form').on('submit', function (e) {
+//         let value = $('textarea').val()
+//         console.log(value)
+//         $.post('index.js', { content: value })
+//     })
+// })
 $(document).ready(function () {
-    renderTweets(data)
+
+    $(".tweetForm").submit(function (e) {
+        if ($('textarea').val().length > 140 || $('textarea').val().length === 0) {
+            e.preventDefault()
+        } else {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var url = form.attr('action');
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(),
+                success: loadTweets()
+            });
+        }
+
+    });
+    // 
 })
-
-
-
-
-
-
-// console.log($tweet); // to see what it looks like
-// $('#tweets-container').append($tweet);
-// var $tweet = $("<article>").addClass("tweet")
-// var $tweet = createTweetElement(tweetData)
