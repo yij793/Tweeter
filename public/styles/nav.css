@@ -24,7 +24,13 @@
     font-size:30px;
     float:right;
     margin-top:5px;
+    color: #00a087;
+    background-color: rgb(185, 191, 196)
 
 
+}
+#nav-bar button:hover{
+    background-color:white;
+    color:black
 }
 
