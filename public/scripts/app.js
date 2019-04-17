@@ -128,7 +128,7 @@ function show_hideCompose() {
 
 
 function ajaxPost() {
-    $(".tweetForm").submit(function (e) {
+    $('.tweetForm').submit(function (e) {
         if ($('textarea').val().length > 140 || $('textarea').val().length === 0) {
             $('#errorMessage').show()
             e.preventDefault();
