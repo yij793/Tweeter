@@ -68,7 +68,7 @@ function timeSince(date) {
     if (interval >= 1) {
         return interval + " minutes ago";
     }
-    return Math.floor(seconds) + " seconds ago";
+    return Math.floor(seconds + 1) + " seconds ago";
 }
 
 
@@ -84,7 +84,7 @@ function createTweetElement(tweetDATA) {
     let $header = $('<header>');
     let $img = $('<img>').attr('src', src);///<img src='src'>
     let $p = $('<p>').text(text);           ///<p> text </p>
-    let $span = $('<span>').text(timeSince(created_at))///<span> timefunction(date code) <span>
+    let $timeOfpost = $('<span>').addClass('timeOfpost').text(timeSince(created_at))///<span> timefunction(date code) <span>
     let $footer = $('<footer>');
     let $userID = $('<span>').addClass('userID').text(name); ///<span> userName </span>
     let $mrField = $('<span>').addClass('mrField').text(handle); //<span> userFIELD </span>
@@ -93,20 +93,27 @@ function createTweetElement(tweetDATA) {
     $($header).append($img)
     $($header).append($userID)
     $($header).append($mrField)
-    $($footer).append($span)
+    $($footer).append($timeOfpost)
     $($footer).append($icon)
     $($tweet).append($header)
     $($tweet).append($p)
     $($tweet).append($footer)
     return $tweet
 }
+// function renderTweets(data) {
+//     let element = createTweetElement(data[data.length - 1]);
+//     $('#tweets-container').prepend(element);
+// }
 function renderTweets(data) {
-    let element = createTweetElement(data);
-    $('#tweets-container').prepend(element);
+    $('#tweets-container').empty()
+    data.forEach(element => {
+        let data = createTweetElement(element)
+        $('#tweets-container').prepend(data)
+    });
 }
 
 function loadTweets() {
-    $.ajax('/tweets', { method: 'GET' }).then(renderTweets(data[data.length - 1]))
+    $.ajax('/tweets', { method: 'GET' }).then(renderTweets(data))
 }
 function show_hideCompose() {
     $('#nav-bar button').on('click', (e) => {
@@ -117,11 +124,16 @@ function show_hideCompose() {
 
 }
 
+
+
+
 function ajaxPost() {
     $(".tweetForm").submit(function (e) {
         if ($('textarea').val().length > 140 || $('textarea').val().length === 0) {
-            e.preventDefault()
+            $('#errorMessage').show()
+            e.preventDefault();
         } else {
+            $('#errorMessage').hide()
             e.preventDefault(); // avoid to execute the actual submit of the form.
             var form = $(this);
             var url = form.attr('action');
@@ -164,6 +176,10 @@ function resetText() {
         $('textarea').val('')
     })
 }
+
+function errorType() {
+    $('. new-tweet')
+}
 // $(document).ready(function () {
 //     $('form').on('submit', function (e) {
 //         let value = $('textarea').val()
@@ -173,8 +189,8 @@ function resetText() {
 // })
 
 $(document).ready(function () {
-    show_hideCompose();
     ajaxPost();
+    show_hideCompose();
     resetText();
 
     // 
