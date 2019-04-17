@@ -33,10 +33,8 @@ app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
 
+app.post('/tweets', function (req, res) {
+  const { text } = req.body;
+  console.log(text)
 
-app.post('/tweets', (res, req) => {
-  console.log('body: ' + JSON.stringify(req.body));
-  // Here could go the processing to save your user ...
-  return res.sendStatus(201);
-
-})
+});
