@@ -49,23 +49,23 @@ const data = [
 function timeSince(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
     var interval = Math.floor(seconds / 31536000);
-    if (interval > 1) {
+    if (interval >= 1) {
         return interval + " years";
     }
     interval = Math.floor(seconds / 2592000);
-    if (interval > 1) {
+    if (interval >= 1) {
         return interval + " months";
     }
     interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
+    if (interval >= 1) {
         return interval + " days";
     }
     interval = Math.floor(seconds / 3600);
-    if (interval > 1) {
+    if (interval >= 1) {
         return interval + " hours";
     }
     interval = Math.floor(seconds / 60);
-    if (interval > 1) {
+    if (interval >= 1) {
         return interval + " minutes";
     }
     return Math.floor(seconds) + " seconds";
@@ -131,14 +131,38 @@ $(document).ready(function () {
             e.preventDefault(); // avoid to execute the actual submit of the form.
             var form = $(this);
             var url = form.attr('action');
+            var text = $('textarea').val();
+
             $.ajax({
                 type: "POST",
                 url: url,
-                data: form.serialize(),
-                success: loadTweets()
-            });
+                data: { text },
+            }).then(
+                data.push(
+                    {
+                        "user": {
+                            "name": "ME ",
+                            "avatars": {
+                                "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+                                "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
+                                "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+                            },
+                            "handle": "@ME"
+                        },
+                        "content": {
+                            "text": text
+                        },
+                        "created_at": new Date()
+                    }
+
+
+                )
+
+
+            ).then(loadTweets())
         }
 
     });
+
     // 
 })
