@@ -33,8 +33,8 @@ app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
 
-app.post('/tweets', function (req, res) {
-  const { text } = req.body;
-  console.log(text)
+// app.post('/tweets', function (req, res) {
+//   const { text } = req.body;
+//   console.log(text)
 
-});
+// });
