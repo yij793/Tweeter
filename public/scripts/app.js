@@ -135,9 +135,9 @@ function ajaxPost() {
         } else {
             $('#errorMessage').hide()
             e.preventDefault(); // avoid to execute the actual submit of the form.
-            var form = $(this);
-            var url = form.attr('action');
-            var text = $('textarea').val();
+            const form = $(this);
+            const url = form.attr('action');
+            const text = $('textarea').val();
 
             $.ajax({
                 type: "POST",
@@ -177,9 +177,6 @@ function resetText() {
     })
 }
 
-function errorType() {
-    $('. new-tweet')
-}
 // $(document).ready(function () {
 //     $('form').on('submit', function (e) {
 //         let value = $('textarea').val()
