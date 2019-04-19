@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 
   <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/twcontain.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/stylesheets/twcontain.css" type="text/css" />
 
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -38,12 +38,11 @@
         <h2>Compose Tweet</h2>
         <hr>
         <form method="POST" action='/tweets' class='tweetForm'>
-          <textarea name="text" placeholder="What are you humming about?" class='text' autofocus='autofocus'></textarea>
+          <textarea row='1' name="text" placeholder="What are you humming about?" class='text' autofocus='autofocus'></textarea>
           <div id='errorMessage'> <em> your tweet is invalid</em><br></div>
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
         </form>
-
       </section>
     </article>
     <section id='tweets-container'>
