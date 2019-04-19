@@ -1,0 +1,38 @@
+
+#nav-bar{
+    background-color: #00a087;
+    color:#e8fdff;
+    position: fixed;
+    height:80px;
+    width:100vw;
+    padding-left: 2em;
+    padding-right: 2em;
+    
+}
+
+#nav-bar .logo{
+    float: left;
+    height:80px;
+    width:80px;
+    margin-right: 10px;
+}
+#nav-bar .header{
+    float: left;
+    font-size:35px;
+    line-height:80px;
+
+}
+#nav-bar button{
+    font-size:30px;
+    float:right;
+    margin-top:5px;
+    color: #00a087;
+    background-color: rgb(185, 191, 196)
+
+
+}
+#nav-bar button:hover{
+    background-color:white;
+    color:black
+}
+
