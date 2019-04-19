@@ -38,12 +38,15 @@ function createTweetElement(tweetDATA) {
     let $header = $('<header>');
     let $img = $('<img>').attr('src', src);///<img src='src'>
     let $p = $('<p>').text(text);           ///<p> text </p>
+    let $hr = $('<hr>')
     let $timeOfpost = $('<span>').addClass('timeOfpost').text(timeSince(created_at))///<span> timefunction(date code) <span>
     let $footer = $('<footer>');
     let $userID = $('<span>').addClass('userID').text(name); ///<span> userName </span>
     let $mrField = $('<span>').addClass('mrField').text(handle); //<span> userFIELD </span>
-    let $icon = $('<span>').addClass('icon').text('will add icon later'); /// <span> ICONs </span> 
+    let $icon = $('<span>').addClass('icon'); /// <span> ICONs </span> 
+    let $li = $('<li>')
     /// creat DOM
+    $(icon).append($li)
     $($header).append($img)
     $($header).append($userID)
     $($header).append($mrField)
@@ -51,13 +54,12 @@ function createTweetElement(tweetDATA) {
     $($footer).append($icon)
     $($tweet).append($header)
     $($tweet).append($p)
+    $($tweet).append($hr)
     $($tweet).append($footer)
     return $tweet
 }
-// function renderTweets(data) {
-//     let element = createTweetElement(data[data.length - 1]);
-//     $('#tweets-container').prepend(element);
-// }
+
+/// Render new Data
 function renderTweets(data) {
     console.log(data)
     $('#tweets-container').empty()
@@ -66,12 +68,13 @@ function renderTweets(data) {
         $('#tweets-container').prepend(data)
     });
 }
-
+///Ajax Get Request
 function loadTweets() {
     $.get('/tweets', (data, status) => {
         renderTweets(data)
     })
 }
+/// Toggle hidden 'Compose'
 function show_hideCompose() {
     $('#nav-bar button').on('click', (e) => {
         $('.chatWindow').slideToggle("fast", function () {
@@ -80,10 +83,7 @@ function show_hideCompose() {
     })
 
 }
-
-
-
-
+///Ajax Post Request
 function ajaxPost() {
     $('.tweetForm').submit(function (e) {
         if ($('textarea').val().length > 140 || $('textarea').val().length === 0) {
@@ -111,20 +111,10 @@ function resetText() {
         $('textarea').val('')
     })
 }
-
-// $(document).ready(function () {
-//     $('form').on('submit', function (e) {
-//         let value = $('textarea').val()
-//         console.log(value)
-//         $.post('index.js', { content: value })
-//     })
-// })
-
+///Run jQuery Functions
 $(document).ready(function () {
     loadTweets()
     ajaxPost();
     show_hideCompose();
     resetText();
-
-    // 
 })
