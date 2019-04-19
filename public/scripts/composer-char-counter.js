@@ -7,5 +7,14 @@ $(document).ready(function () {
             $(this).siblings('.counter').css('color', 'red')
         } else { $(this).siblings('.counter').css('color', 'blue') }
     })
+    $('textarea').on('input', autosize)
 });
+
+function autosize() {
+    var el = this;
+    el.style.cssText = 'height:auto; padding:0';
+    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+
+}
+
 
