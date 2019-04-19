@@ -1,6 +1,13 @@
+#errorMessage {
+  color: red;
+  display: none;
+}
+
 article.tweet {
+  display: flex;
+  flex-direction: column;
   width: auto;
-  height: 160px;
+  min-height: 160;
   margin-left: 2em;
   margin-bottom: 4px;
   margin-right: 2em;
@@ -9,59 +16,67 @@ article.tweet {
   opacity: 0.5;
   transition: 1s;
 }
-
-article.tweet:hover .icons {
-  opacity: 1;
-  visibility: visible;
-}
-
 article.tweet:hover {
   opacity: 1;
 }
-
-article.tweet p {
-  margin-left: 10px;
+article.tweet:hover .icon {
+  opacity: 1;
+  visibility: visible;
 }
-
+article.tweet p {
+  flex: 1;
+  width: 100%;
+  min-height: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
 article.tweet header {
-  width: 380px;
+  flex: 1;
+  width: 100%;
   height: 80px;
   background-color: #ece6e6;
   display: flex;
-  align-content: center;
 }
-
 article.tweet header .userID {
-  font-size: 35px;
+  font-size: 20px;
+  flex: 1;
+  align-self: center;
 }
-
 article.tweet header .mrField {
+  flex: 1;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
   font-size: 15px;
   line-height: 20px;
-  margin-left: 140px;
+  text-align: right;
 }
-
-article.tweet header img {
+article.tweet header .mrField img {
   width: 60px;
   height: 60px;
+  flex: 1;
 }
-
+article.tweet footer {
+  flex: 1;
+}
 article.tweet hr {
   margin-top: 1em;
   margin-bottom: 0;
+  color: black;
 }
-
-article.tweet footer span:nth-child(2) {
+article.tweet .icon {
+  display: flex;
   float: right;
-  padding-right: 1em;
   opacity: 0;
   visibility: hidden;
   transition: 1s;
 }
-
-#errorMessage {
-  color: red;
-  display: none;
+article.tweet .icon i {
+  flex: 1;
+  margin: 5px;
 }
 
 /*# sourceMappingURL=twcontain.css.map */
