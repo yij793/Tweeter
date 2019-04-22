@@ -11,9 +11,6 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
 main {
   width: 40vw;
   background-color: white;
@@ -25,7 +22,7 @@ main h2 {
   margin: 0;
 }
 main .chatWindow {
-  width: auto;
+  max-width: 30vw;
   margin-left: 2em;
   margin-bottom: 4px;
   margin-right: 2em;
@@ -44,12 +41,24 @@ main .new-tweet {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-main .new-tweet hr {
-  margin-top: 0;
+main .new-tweet .line {
+  size: 10px;
+  color: black;
   margin-bottom: 1em;
 }
 main .counter {
   float: right;
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    width: 100%;
+    top: 100px;
+    left: 0;
+  }
+  main .chatWindow {
+    max-width: 90%;
+  }
 }
 
 /*# sourceMappingURL=layout.css.map */
