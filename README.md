@@ -23,9 +23,13 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final view
 !['screenshot'](image/1.png)
+***
 !['screenshot'](image/2.png)
+***
 !['screenshot'](image/3.png)
+***
 !['screenshot'](image/4.png)
+***
 
 ## On development 
 * liking 
