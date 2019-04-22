@@ -13,5 +13,20 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
+* Express
+* Node 5.10.x or above
+* code-session
+* chancejs
+* MongoDB
+* body-parse
+* SASS
+
+## Final view
+!['screenshot'](image/1.png)
+!['screenshot'](image/2.png)
+!['screenshot'](image/3.png)
+!['screenshot'](image/4.png)
+
+## On development 
+* liking 
+* login
