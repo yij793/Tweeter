@@ -3,11 +3,14 @@
 
 <head>
   <!-- Meta Information -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tweeter - Home Page</title>
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous">
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/stylesheets/layout.css" type="text/css" />
@@ -28,10 +31,18 @@
   <nav id="nav-bar">
     <img class="logo" src="/images/bird.png">
     <span class="header">Tweeter</span>
-    <button type='button'>Compose</button>
+    <!-- <button type='button'>Compose</button> -->
+    <form action='/login' method='POST' class='logIn'>
+      email: <input type='text' id='emailLogin'>
+      password: <input type='password' id='passowedLogin'>
+      <input type='submit' value='login'>
+      <br>
+      <input type='button' class='regBot' value='register'>
+    </form>
   </nav>
 
   <!-- Page-specific (main) content here -->
+
   <main class="container">
     <article class='chatWindow'>
       <section class='new-tweet'>
@@ -46,25 +57,16 @@
       </section>
     </article>
     <section id='tweets-container'>
-      <article class='tweet'>
-        <header>
-          <img src='/images/detective.png'>
-          <span class='userID'>
-            bill field
-          </span>
-          <span class='mrField'>@sirlsaac</span>
-        </header>
-        <p>the little twweeet here!!!</p>
-        <hr>
-        <footer>
-          <span class='timeOfpost'>10 days ago</span>
-          <span class='icons'>icons go here</span>
-        </footer>
-      </article>
     </section>
 
   </main>
-
+  <form method="POST" action='/register' id='regForm'>
+    <input type='text' placeholder="your first Name" name='firstName'>
+    <input type='text' placeholder="your last Name" name='lastName'>
+    <input type='email' placeholder='your email address' name='email'>
+    <input type='password' placeholder="password" name='password'>
+    <input type='submit' value='sign up'>
+  </form>
 </body>
 
 </html>
