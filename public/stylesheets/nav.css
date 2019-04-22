@@ -1,4 +1,5 @@
 #nav-bar {
+  z-index: 1;
   background-color: #00a087;
   color: #e8fdff;
   position: fixed;
@@ -7,20 +8,17 @@
   padding-left: 2em;
   padding-right: 2em;
 }
-
 #nav-bar .logo {
   float: left;
   height: 80px;
   width: 80px;
   margin-right: 10px;
 }
-
 #nav-bar .header {
   float: left;
   font-size: 35px;
   line-height: 80px;
 }
-
 #nav-bar button {
   font-size: 30px;
   float: right;
@@ -28,10 +26,19 @@
   color: #00a087;
   background-color: #b9bfc4;
 }
-
 #nav-bar button:hover {
   background-color: white;
   color: black;
+}
+
+.logIn {
+  float: right;
+  position: relative;
+  top: 30%;
+}
+
+.regBot {
+  float: right;
 }
 
 /*# sourceMappingURL=nav.css.map */

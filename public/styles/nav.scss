@@ -1,5 +1,5 @@
-
-#nav-bar{
+#nav-bar {
+    z-index: 1;
     background-color: #00a087;
     color:#e8fdff;
     position: fixed;
@@ -7,32 +7,37 @@
     width:100vw;
     padding-left: 2em;
     padding-right: 2em;
-    
-}
-
-#nav-bar .logo{
-    float: left;
+    .logo{
+        float: left;
     height:80px;
     width:80px;
     margin-right: 10px;
-}
-#nav-bar .header{
-    float: left;
+    }
+    .header{
+        float: left;
     font-size:35px;
     line-height:80px;
 
+    }
+    button{
+        font-size:30px;
+        float:right;
+        margin-top:5px;
+        color: #00a087;
+        background-color: rgb(185, 191, 196)
+    }
+    button:hover{
+        background-color:white;
+        color:black
 }
-#nav-bar button{
-    font-size:30px;
+}
+.logIn{
     float:right;
-    margin-top:5px;
-    color: #00a087;
-    background-color: rgb(185, 191, 196)
+    position: relative;
+    top:30%;
 
 
 }
-#nav-bar button:hover{
-    background-color:white;
-    color:black
+.regBot{
+    float:right
 }
-
