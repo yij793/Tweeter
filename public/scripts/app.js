@@ -43,10 +43,24 @@ function createTweetElement(tweetDATA) {
     let $footer = $('<footer>');
     let $userID = $('<span>').addClass('userID').text(name); ///<span> userName </span>
     let $mrField = $('<span>').addClass('mrField').text(handle); //<span> userFIELD </span>
-    let $icon = $('<span>').addClass('icon'); /// <span> ICONs </span> 
-    let $li = $('<li>')
+    let $icon = $('<span>').addClass('icons')
+    /// <span> ICONs </span> 
+    let $i = $('<i>').addClass('far fa-heart');
+    let $i2 = $('<i>').addClass('far fa-flag')
+    let $i3 = $('<i>').addClass('far fa-dot-circle')
+    $($i).click(function () {
+        $($i).toggleClass("far fa-heart fas fa-heart");
+    })
+    $($i2).click(function () {
+        $($i2).toggleClass("far fa-flag fas fa-flag");
+    })
+    $($i3).click(function () {
+        $($i3).toggleClass("far fa-dot-circle fas fa-dot-circle");
+    })
     /// creat DOM
-    $(icon).append($li)
+    $($icon).append($i2)
+    $($icon).append($i3)
+    $($icon).append($i)
     $($header).append($img)
     $($header).append($userID)
     $($header).append($mrField)
@@ -59,9 +73,9 @@ function createTweetElement(tweetDATA) {
     return $tweet
 }
 
+
 /// Render new Data
 function renderTweets(data) {
-    console.log(data)
     $('#tweets-container').empty()
     data.forEach(element => {
         let data = createTweetElement(element)
@@ -106,15 +120,75 @@ function ajaxPost() {
     });
 
 }
+// clear textarea after submit
 function resetText() {
     $('.tweetForm').on('submit', () => {
         $('textarea').val('')
     })
 }
+
+
+function register() {
+    $('#regForm').submit(function (e) {
+        e.preventDefault();
+        const firstName = $("#regForm input[name='firstName']").val();
+        const lastName = $("#regForm input[name='lastName']").val();
+        const email = $("#regForm input[type='email']").val();
+        const password = $("#regForm input[type='password']").val();
+        const user = `${firstName} ${lastName}`;
+        const url = $('#regForm').attr('action');
+        const $form = $(this);
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+                user: user,
+                email: email,
+                password: password
+            },
+        }).done(location.reload())
+
+    })
+};
+
 ///Run jQuery Functions
 $(document).ready(function () {
     loadTweets()
     ajaxPost();
     show_hideCompose();
     resetText();
+    logInform();
+    regPage();
+    register()
 })
+
+
+///
+function logInform() {
+    $('.logIn').on('submit', (e) => {
+        const email = $('#emailLogin').val()
+        const password = $('#passwordLogin').val()
+        e.preventDefault();
+        $.ajax({
+            type: 'PUT',
+            url: '/login',
+            data: {
+                email: email,
+                password: password
+            },
+            success: function () {
+                $('.logIn').remove()
+                $('#nav-bar').append('<button>').addClass('button');
+            }
+        })
+
+    })
+}
+
+function regPage() {
+    $('.regBot').on('click', (e) => {
+        $('.container').fadeToggle('fast')
+        $('#regForm').slideToggle()
+
+    })
+}
