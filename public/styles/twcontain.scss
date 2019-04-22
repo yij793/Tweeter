@@ -1,61 +1,5 @@
-// article.tweet{
-//     width:auto;
-//     height:160px;
-//     margin-left:2em;
-//     margin-bottom: 4px;
-//     margin-right:2em;
-//     border: 2px solid rgb(177, 174, 174);
-//     border-radius: 10px;
-//     opacity: 0.5;
-//     transition: 1s
-
-// }
-// article.tweet:hover .icons{
-//     opacity: 1;
-//     visibility:visible
-// }
-// article.tweet:hover{
-//     opacity: 1;
-// }
-
-// article.tweet p{
-//     margin-left: 10px;
-// }
-
-// article.tweet header{
-//     width:380px;
-//     height:80px;
-//     background-color:rgb(236, 230, 230);
-//     display:flex;
-//     align-content: center;
-// }
-// article.tweet header .userID{
-//     font-size:35px;
-
-// }
-// article.tweet header .mrField{
-//     font-size:15px;
-//     line-height:20px;
-//     margin-left:140px;
-
-// }
-// article.tweet header img{
-//     width:60px;
-//     height:60px
-// }
-// article.tweet hr{
-//     margin-top:1em;
-//     margin-bottom:0;
-// }
-
-// article.tweet footer span:nth-child(2){
-//     float:right;
-//     padding-right: 1em;
-//     opacity: 0;
-//     visibility: hidden;
-//     transition: 1s
-// }
-
+@import 'layout';
+$boxBordercolor: rgb(148, 144, 144);
 #errorMessage{
     color: red;
     display:none;
@@ -64,17 +8,18 @@ article.tweet{
     display: flex;
     flex-direction: column;
     width:auto;
-    min-height:160;
+    min-height:160px;
+    max-width:30vw ;
     margin-left:2em;
-    margin-bottom: 4px;
+    margin-top: 2em;
     margin-right:2em;
-    border: 2px solid rgb(177, 174, 174);
+    border: 4px solid $boxBordercolor;
     border-radius: 10px;
     opacity: 0.5;
     transition: 1s;
     &:hover{
         opacity: 1;
-        .icon{
+        .icons{
             opacity: 1;
             visibility: visible;
         }
@@ -121,11 +66,11 @@ article.tweet{
         flex:1
     }
     hr{
-        margin-top:1em;
+        margin-top:2em;
         margin-bottom:0;
         color:black;
     }
-    .icon{  
+    .icons{  
             display: flex;
             float:right;
             opacity: 0;
@@ -139,8 +84,58 @@ article.tweet{
         
     }
     
-    
-
-
 
 }
+
+/// register form
+#regForm{
+   position: relative;
+   top:50vh;
+   display:none;
+   max-width: 30vw;
+}
+
+@media screen and (max-width: 500px) {
+  
+    article.tweet {
+      font-size: medium;
+      border: 2px solid $boxBordercolor;
+      max-width: 90%;
+     
+      header {
+        flex:1;
+        width:100%;
+        height:auto;
+        background-color:rgb(236, 230, 230);
+        display:flex;
+        p {
+          margin-right: 0.5rem;
+        }
+      }
+  
+      footer {
+        font-size: medium;
+      }
+      hr{
+        margin-top:2em;
+        margin-bottom:1px;
+        color:black;
+    }
+      
+    .icons{  
+        display: flex;
+        float:right;
+        opacity: 0;
+        visibility: hidden;
+        transition: 1s;
+        i {
+            flex:1;
+            margin:1em;
+        }
+    
+    
+}
+      
+  
+    }
+  }
