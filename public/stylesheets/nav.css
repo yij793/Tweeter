@@ -19,14 +19,14 @@
   font-size: 35px;
   line-height: 80px;
 }
-#nav-bar button {
-  font-size: 30px;
+#nav-bar .compose {
+  font-size: 2rem;
   float: right;
-  margin-top: 5px;
+  margin-top: 10px;
   color: #00a087;
   background-color: #b9bfc4;
 }
-#nav-bar button:hover {
+#nav-bar .compose:hover {
   background-color: white;
   color: black;
 }
@@ -39,6 +39,14 @@
 
 .regBot {
   float: right;
+}
+
+@media screen and (max-width: 500px) {
+  #nav-bar .compose {
+    font-size: 1rem;
+    float: right;
+    margin-top: 10px;
+  }
 }
 
 /*# sourceMappingURL=nav.css.map */

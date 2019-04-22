@@ -19,14 +19,14 @@
     line-height:80px;
 
     }
-    button{
-        font-size:30px;
+    .compose{
+        font-size: 2rem;
         float:right;
-        margin-top:5px;
+        margin-top:10px;
         color: #00a087;
         background-color: rgb(185, 191, 196)
     }
-    button:hover{
+    .compose:hover{
         background-color:white;
         color:black
 }
@@ -40,4 +40,12 @@
 }
 .regBot{
     float:right
+}
+@media screen and (max-width: 500px){
+    #nav-bar{
+    .compose{
+        font-size: 1rem;
+        float:right;
+        margin-top:10px;
+    }}
 }
