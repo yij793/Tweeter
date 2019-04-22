@@ -38,7 +38,7 @@ function createTweetElement(tweetDATA) {
     let $header = $('<header>');
     let $img = $('<img>').attr('src', src);///<img src='src'>
     let $p = $('<p>').text(text);           ///<p> text </p>
-    let $hr = $('<hr>')
+    let $hr = $('<hr>').addClass('line')
     let $timeOfpost = $('<span>').addClass('timeOfpost').text(timeSince(created_at))///<span> timefunction(date code) <span>
     let $footer = $('<footer>');
     let $userID = $('<span>').addClass('userID').text(name); ///<span> userName </span>
@@ -146,7 +146,13 @@ function register() {
                 email: email,
                 password: password
             },
-        }).done(location.reload())
+        }).done(() => {
+            $('.logIn').remove();
+            $('#nav-bar').append('<button>').addClass('compose')
+            $('.container').fadeToggle('fast')
+            $('#regForm').slideToggle()
+
+        })
 
     })
 };
