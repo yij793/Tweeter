@@ -35,13 +35,14 @@ module.exports = function makeDataHelpers(db) {
       })
     },
     saveUser: function (newUser, callback) {
-      db.collection('user').insertOne(newUser, (err, res) => {
-        if (err) {
-          throw err
-        }
-        callback(null, res)
+      if (db.collection('user').find({ email }))
+        db.collection('user').insertOne(newUser, (err, res) => {
+          if (err) {
+            throw err
+          }
+          callback(null, res)
 
-      })
+        })
     }
   }
 }
