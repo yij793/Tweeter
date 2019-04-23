@@ -76,6 +76,8 @@ function createTweetElement(tweetDATA) {
 
 /// Render new Data
 function renderTweets(data) {
+    console.log("render")
+    resetText()
     $('#tweets-container').empty()
     data.forEach(element => {
         let data = createTweetElement(element)
@@ -103,8 +105,11 @@ function ajaxPost() {
         if ($('textarea').val().length > 140 || $('textarea').val().length === 0) {
             $('#errorMessage').show()
             e.preventDefault();
+            console.log("ERR")
+
         } else {
             $('#errorMessage').hide()
+            console.log("POST")
             e.preventDefault(); // avoid to execute the actual submit of the form.
             const form = $(this);
             const url = form.attr('action');
@@ -122,12 +127,10 @@ function ajaxPost() {
 }
 // clear textarea after submit
 function resetText() {
-    $('.tweetForm').on('submit', () => {
-        $('textarea').val('')
-    })
+    $('textarea').val('')
 }
 
-
+/// register
 function register() {
     $('#regForm').submit(function (e) {
         e.preventDefault();
@@ -162,14 +165,13 @@ $(document).ready(function () {
     loadTweets()
     ajaxPost();
     show_hideCompose();
-    resetText();
     logInform();
     regPage();
     register()
 })
 
 
-///
+///login part, havent done yet
 function logInform() {
     $('.logIn').on('submit', (e) => {
         const email = $('#emailLogin').val()
