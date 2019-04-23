@@ -42,6 +42,8 @@ main .new-tweet {
   margin-bottom: 1em;
 }
 main .new-tweet .line {
+  size: 10px;
+  color: black;
   margin-bottom: 1em;
 }
 main .counter {
@@ -64,6 +66,7 @@ main .counter {
 }
 
 article.tweet {
+  font-family: "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   width: auto;
@@ -116,11 +119,12 @@ article.tweet header .mrField {
   text-align: right;
 }
 article.tweet header .mrField img {
-  width: 60px;
-  height: 60px;
+  width: 10%;
+  height: 100%;
   flex: 1;
 }
 article.tweet footer {
+  border-top: 2px solid black;
   flex: 1;
 }
 article.tweet hr {
