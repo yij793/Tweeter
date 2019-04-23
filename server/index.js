@@ -14,10 +14,7 @@ app.use(cookieSession({
 }))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
-
-// const db = require("./lib/in-memory-db");
-
+/// ready for mongoDB
 const Mongo = require("mongodb");
 const { MongoClient } = Mongo;
 const MONGODB_URI = 'mongodb://localhost:27017/tweeter';
@@ -40,4 +37,3 @@ MongoClient.connect(MONGODB_URI, (err, dbInstance) => {
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
-
